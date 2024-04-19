@@ -26,7 +26,7 @@ This Python keylogger script allows you to monitor keyboard inputs, mouse activi
 - The developer is not responsible for any misuse or damage caused by this script.
 
 ## Author
-- Created by Satyasai Kilaru
+- Created by **_Satyasai Kilaru_**
 - GitHub: github.com/SatyaKilaru
 
 Feel free to contribute, report issues, or suggest improvements. Thank you for using this keylogger script responsibly.
